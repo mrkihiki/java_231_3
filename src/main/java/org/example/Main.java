@@ -16,33 +16,35 @@ public class Main {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
         //System.out.printf("Hello and welcome!");
-//        System.out.println("Task 2");
-//        Balance balance = new Balance();
-//        balance.addRight(5);
-//        balance.result();
-//        System.out.println("Task 3");
-//        Bell b = new Bell();
-//        b.sound();
-//        b.sound();
-//        b.sound();
-//        System.out.println("Task 4");
-//        OddEvenSeparator OES = new OddEvenSeparator();
-//        OES.addNumber(5);
-//        OES.addNumber(7);
-//        OES.addNumber(4);OES.addNumber(1);
-//        OES.addNumber(2);
-//        OES.addNumber(5);
-//        OES.even();
-//        System.out.println("-----");
-//        OES.odd();
-//        System.out.println("Task 5");
-//        Table table = new Table(6,4);
-//        table.setValue(0,0,5);
-//        table.setValue(2,3,7);
-//        //table.getValue(1,2);
-//        System.out.println(table.cols());
-//        System.out.println(table.toString());
-//        System.out.println(table.average());
+        System.out.println("Task 2");
+        Balance balance = new Balance();
+        balance.addRight(5);
+        balance.addLeft(2);
+        balance.result();
+        System.out.println("Task 3");
+        Bell b = new Bell();
+        b.sound();
+        b.sound();
+        b.sound();
+        System.out.println("Task 4");
+        OddEvenSeparator OES = new OddEvenSeparator();
+        OES.addNumber(5);
+        OES.addNumber(7);
+        OES.addNumber(4);OES.addNumber(1);
+        OES.addNumber(2);
+        OES.addNumber(5);
+        OES.even();
+        System.out.println("-----");
+        OES.odd();
+        System.out.println("Task 5");
+        Table table = new Table(6,4);
+        table.setValue(0,0,5);
+        table.setValue(2,3,7);
+        System.out.println(table.getValue(1,2));
+        System.out.println(table.rows());
+        System.out.println(table.cols());
+        System.out.println(table.toString());
+        System.out.println(table.average());
         System.out.println("Task 1");
         Button1 but = new Button1();
     }
@@ -73,19 +75,18 @@ class Button1 {
     }
 }
 class Balance{
-
-    int a=0;
-    int b=0;
+    int right =0;
+    int left =0;
 
     void addRight(int i){
-        a=a+i;
+        right = right +i;
     }
     void addLeft(int i){
-        b=b+i;
+        left = left +i;
     }
     void result(){
-        if(a>b){System.out.println("R");} else
-        if (a<b) {
+        if(right > left){System.out.println("R");} else
+        if (right < left) {
             System.out.println("L");
         }else{System.out.println("=");}
     }
@@ -144,7 +145,7 @@ class Table{
         return(Arr[0].length);
     }
     public String toString(){
-        return Arrays.deepToString(Arr);
+        return Arrays.deepToString(Arr).replaceAll("[\\[\\] ]", "");
     }
     float average(){
 //        IntStream stream =  (Arrays.stream(Arr)).flatMapToInt(Arrays::stream);
